@@ -7,10 +7,14 @@ class Vendor
   end
 
   def check_stock(name)
-    if @inventory[:name] == nil
+    if @inventory[:name].nil?
       0
     else
-      
+      @inventory[:name]
     end
+  end
+
+  def stock(name, quantity)
+    @inventory[name] = quantity
   end
 end
