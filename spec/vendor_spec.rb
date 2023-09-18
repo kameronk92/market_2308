@@ -10,11 +10,18 @@ RSpec.describe "Vendor" do
   describe "#initialize" do
     it "creates an instance of vendor with vendor name as argument" do 
       expect(@vendor).to be_an_instance_of(Vendor)
-      expect(@vendor.name).to be_an_instance_of(String)
+      expect(@vendor.vendor_name).to be_an_instance_of(String)
     end
+
     it "comes with an inventory as empty hash" do
       expect(@vendor.inventory).to be_an_instance_of(Hash)
       expect(@vendor.inventory).to eq({})
+    end
+  end
+
+  describe "#check_stock" do
+    it "returns the vendor's inventory stock quantity for an item" do
+      expect(@vendor.check_stock(@item1)).to eq(0) 
     end
   end
 end
