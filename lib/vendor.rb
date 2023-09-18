@@ -2,7 +2,7 @@ class Vendor
   attr_reader :name, :inventory
 
   def initialize(vendor_name)
-    @name = vendor_name
+    @name = vendor_name #I know convention may be to have these match but there are too many "name" variables floating in the different classes. 
     @inventory = {}
   end
 
