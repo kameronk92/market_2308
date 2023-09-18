@@ -63,7 +63,7 @@ RSpec.describe "Market" do
       expect(@market.vendors.length).to eq 2
       @market.add_vendor(@vendor3)
       @vendor3.stock(@item1, 65)
-
+      # require 'pry'; binding.pry
       expect(@market.vendors_that_sell(@item1).length).to eq 2
       expect(@market.vendors_that_sell(@item4).length).to eq 1
     end

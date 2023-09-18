@@ -11,13 +11,13 @@ class Market
   end
 
   def vendor_names
-    vendor_names = @vendors.map do |vendor|
-      vendor_names << vendor.name
+    @vendors.map do |vendor|
+      vendor.name
     end
   end
 
   def vendors_that_sell(item)
-    vendors_that_sell = @vendors.select do |vendor|
+    @vendors.select do |vendor|
       vendor.inventory.include?(item)
     end
   end
