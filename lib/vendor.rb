@@ -1,8 +1,8 @@
 class Vendor
-  attr_reader :vendor_name, :inventory
+  attr_reader :name, :inventory
 
   def initialize(vendor_name)
-    @vendor_name = vendor_name
+    @name = vendor_name
     @inventory = {}
   end
 
