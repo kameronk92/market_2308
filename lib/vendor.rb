@@ -15,6 +15,11 @@ class Vendor
   end
 
   def stock(name, quantity)
-    @inventory[name] = quantity
+    if @inventory[name].nil?
+      @inventory[name] = quantity
+    else
+      quantity_new = @inventory[name] + quantity
+      @inventory[name] = quantity_new
+    end
   end
 end
