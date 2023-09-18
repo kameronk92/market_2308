@@ -23,12 +23,11 @@ class Market
   end
 
   def sorted_items_list
-    items = []
-    @vendors.each do |vendor|
-      vendor.inventory.each do |item|
-      items << item.info[:name]
+    items_list = @vendors.map do |vendor|
+      vendor.inventory.map do |item|
+      item[0].info[:name]
       end
     end
-    items.flatten.uniq.sort
+    items_list.flatten.uniq.sort
   end
 end
