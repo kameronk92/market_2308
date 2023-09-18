@@ -68,4 +68,10 @@ RSpec.describe "Market" do
       expect(@market.vendors_that_sell(@item4).length).to eq 1
     end
   end
+
+  describe "sorted_items_list" do
+    it "creates an array of names of all items at the market" do
+      expect(@market.sorted_items_list).to eq(['Peach', 'Tomato',"Peach-Raspberry Nice Cream", "Banana Nice Cream"])
+    end
+  end
 end

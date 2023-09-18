@@ -21,4 +21,14 @@ class Market
       vendor.inventory.include?(item)
     end
   end
+
+  def sorted_items_list
+    items = []
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item|
+      items << item.info[:name]
+      end
+    end
+    items.flatten.uniq.sort
+  end
 end

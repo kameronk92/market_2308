@@ -26,6 +26,7 @@ class Vendor
   def potential_revenue
     @inventory.reduce(0) do |potential_revenue, item|
       potential_revenue + item[0].price * item[1]
+      require 'pry'; binding.pry
     end
   end
 end
