@@ -31,7 +31,13 @@ RSpec.describe "Vendor" do
       expect(@vendor.inventory[@item1]).to eq(30)
       expect(@vendor.inventory.keys).to eq([@item1])
       @vendor.stock(@item1, 25)
-      require 'pry'; binding.pry
+      expect(@vendor.inventory[@item1]).to eq(55)
+      expect(@vendor.inventory.keys).to eq([@item1])
+    end
+
+    it "can add a second item to the inventory hash" do
+      @vendor.stock(@item2, 12)
+      expect(@vendor.inventory[@item2]).to eq(12)
     end
   end
 end
