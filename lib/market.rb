@@ -30,4 +30,34 @@ class Market
     end
     items_list.flatten.uniq.sort
   end
+
+  def market_inventory
+    @vendors.map do |vendor|
+      vendor.inventory
+    end
+  end
+
+  def overstocked_items
+    item_quantites = {}
+    self.market_inventory.each do |item_hash|
+      item_hash.each do |item, quantity|
+        item_name = item.info[:name]
+        if item_quantites.key?(item_name)
+          item_quantites[item_name] += quantity
+        else
+          item_quantites[item_name] = quantity
+        end
+      end
+    end
+  end
+
+  def total_inventory
+    total_inventory = {}
+    total_inventory => self.sorted_items_list
+    require 'pry'; binding.pry
+    # vendors.each do |vendor|
+    #   vendor.inventory
+
+    # end
+  end
 end

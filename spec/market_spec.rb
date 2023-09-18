@@ -63,7 +63,6 @@ RSpec.describe "Market" do
       expect(@market.vendors.length).to eq 2
       @market.add_vendor(@vendor3)
       @vendor3.stock(@item1, 65)
-
       expect(@market.vendors_that_sell(@item1).length).to eq 2
       expect(@market.vendors_that_sell(@item4).length).to eq 1
     end
@@ -74,14 +73,27 @@ RSpec.describe "Market" do
       @market.add_vendor(@vendor1)
       @vendor1.stock(@item1, 35)
       @vendor1.stock(@item2, 7)
-      expect(@market.vendors.length).to eq 1
       @market.add_vendor(@vendor2)
       @vendor2.stock(@item4, 50)
       @vendor2.stock(@item3, 25)
-      expect(@market.vendors.length).to eq 2
       @market.add_vendor(@vendor3)
       @vendor3.stock(@item1, 65)
       expect(@market.sorted_items_list).to eq(["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"])
+    end
+  end
+
+  describe "overstocked_items" do
+    it "sees if more than one vendor is selling and over 50 total quantity" do 
+      @market.add_vendor(@vendor1)
+      @vendor1.stock(@item1, 35)
+      @vendor1.stock(@item2, 7)
+      @market.add_vendor(@vendor2)
+      @vendor2.stock(@item4, 50)
+      @vendor2.stock(@item3, 25)
+      @market.add_vendor(@vendor3)
+      @vendor3.stock(@item1, 65)
+      require 'pry'; binding.pry
+     #expect it to be peaches..
     end
   end
 end
